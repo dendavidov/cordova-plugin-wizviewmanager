@@ -1,9 +1,9 @@
 /*
- *  __    __ _                  _   __    __     _          _               
+ *  __    __ _                  _   __    __     _          _
  * / / /\ \ (_)______ _ _ __ __| | / / /\ \ \___| |__/\   /(_) _____      __
  * \ \/  \/ / |_  / _` | '__/ _` | \ \/  \/ / _ \ '_ \ \ / / |/ _ \ \ /\ / /
- *  \  /\  /| |/ / (_| | | | (_| |  \  /\  /  __/ |_) \ V /| |  __/\ V  V / 
- *   \/  \/ |_/___\__,_|_|  \__,_|   \/  \/ \___|_.__/ \_/ |_|\___| \_/\_/  
+ *  \  /\  /| |/ / (_| | | | (_| |  \  /\  /  __/ |_) \ V /| |  __/\ V  V /
+ *   \/  \/ |_/___\__,_|_|  \__,_|   \/  \/ \___|_.__/ \_/ |_|\___| \_/\_/
  *
  * @author  Ally Ogilvie
  * @copyright Wizcorp Inc. [ Incorporated Wizards ] 2013
@@ -78,9 +78,9 @@ public class WizWebView extends WebView  {
         webSettings.setJavaScriptEnabled(true);
 
         webSettings.setDomStorageEnabled(true);
-        // Whether or not on-screen controls are displayed can be set with setDisplayZoomControls(boolean). 
+        // Whether or not on-screen controls are displayed can be set with setDisplayZoomControls(boolean).
         // The default is false.
-        // The built-in mechanisms are the only currently supported zoom mechanisms, 
+        // The built-in mechanisms are the only currently supported zoom mechanisms,
         // so it is recommended that this setting is always enabled.
         webSettings.setBuiltInZoomControls(true);
         webSettings.setLoadWithOverviewMode(true);
@@ -143,7 +143,7 @@ public class WizWebView extends WebView  {
                         WebView targetView;
                         try {
                             targetView = (WebView) viewList.get(msgData[1]);
-
+                            targetView.getSettings().setUserAgentString("neftegarant-bssapp-viewer");
                             String data2send = msgData[2];
                             // Log.d("WizWebView", "[wizMessage] targetView ****** is " + msgData[1] + " -> " + targetView + " with data -> " + data2send);
                             String jsString = "javascript:wizViewMessenger.__triggerMessageEvent(\"" + msgData[0] + "\", \"" + msgData[1] + "\", \"" + data2send + "\", \"" + msgData[3] + "\");";
@@ -181,7 +181,7 @@ public class WizWebView extends WebView  {
                         WebView targetView;
                         try {
                             targetView = (WebView) viewList.get(msgData[0]);
-
+                            targetView.getSettings().setUserAgentString("neftegarant-bssapp-viewer");
                             String data2send = msgData[1];
                             data2send = data2send.replace("'", "\\'");
                             // Log.d(TAG, "[wizMessage] targetView ****** is " + msgData[0] + " -> " + targetView + " with data -> " + data2send);

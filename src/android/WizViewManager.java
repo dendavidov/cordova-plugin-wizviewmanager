@@ -1,11 +1,11 @@
 /*
- *  __    __ _                  _         _                                                          
- * / / /\ \ (_)______ _ _ __ __| | /\   /(_) _____      __   /\/\   __ _ _ __   __ _  __ _  ___ _ __ 
+ *  __    __ _                  _         _
+ * / / /\ \ (_)______ _ _ __ __| | /\   /(_) _____      __   /\/\   __ _ _ __   __ _  __ _  ___ _ __
  * \ \/  \/ / |_  / _` | '__/ _` | \ \ / / |/ _ \ \ /\ / /  /    \ / _` | '_ \ / _` |/ _` |/ _ \ '__|
- *  \  /\  /| |/ / (_| | | | (_| |  \ V /| |  __/\ V  V /  / /\/\ \ (_| | | | | (_| | (_| |  __/ |   
- *   \/  \/ |_/___\__,_|_|  \__,_|   \_/ |_|\___| \_/\_/   \/    \/\__,_|_| |_|\__,_|\__, |\___|_|   
- *                                                                                   |___/                                                                                              |___/                           |___/        
- * @author  Ally Ogilvie  
+ *  \  /\  /| |/ / (_| | | | (_| |  \ V /| |  __/\ V  V /  / /\/\ \ (_| | | | | (_| | (_| |  __/ |
+ *   \/  \/ |_/___\__,_|_|  \__,_|   \_/ |_|\___| \_/\_/   \/    \/\__,_|_| |_|\__,_|\__, |\___|_|
+ *                                                                                   |___/                                                                                              |___/                           |___/
+ * @author  Ally Ogilvie
  * @copyright Wizcorp Inc. [ Incorporated Wizards ] 2013
  * @file    - WizViewManager.java
  * @about   - Handle view and communication.
@@ -58,6 +58,7 @@ public class WizViewManager extends CordovaPlugin {
         _webView = webView;
         final View view = webView.getView();
         Log.d(TAG, "Initialize Plugin");
+        // view.getSettings().setUserAgentString("neftegarant-bssapp-viewer");
         // By default, get a pointer to mainView and add mainView to the viewList as it always exists (hold phonegap's view)
         if (!viewList.has("mainView")) {
             // Cordova view is not in the viewList so add it.
@@ -89,6 +90,7 @@ public class WizViewManager extends CordovaPlugin {
                 settings.setDomStorageEnabled(true);
                 settings.setLoadWithOverviewMode(true);
                 settings.setUseWideViewPort(true);
+                settings.setUserAgentString("Android Mobile neftegarant-bssapp-viewer");
             }
         });
     }
@@ -581,6 +583,7 @@ public class WizViewManager extends CordovaPlugin {
                                             // No animations
                                             targetView.setVisibility(View.VISIBLE);
                                             targetView.setPadding(0, 0, 0, 0);
+                                            targetView.setAlpha(0.5f);
                                             Log.d(TAG, "[show - targetView.getPaddingLeft()] ****** " + targetView.getPaddingLeft());
                                         } else {
                                             // already shown, just callback
